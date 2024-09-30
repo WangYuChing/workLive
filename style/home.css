@@ -8,6 +8,7 @@ html{
 .homePage{
     background-color: rgb(255, 255, 255);
     text-align: center;
+    align-items: center;
     width:500px;
     height: 100vh;
 }
