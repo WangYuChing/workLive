@@ -6,9 +6,25 @@ html{
     height: 100vh;
 }
 .homePage{
-    background-color: rgb(255, 255, 255);
-    text-align: center;
-    align-items: center;
-    width:500px;
+    position: relative;
+    width: 100%;
     height: 100vh;
+}
+img{
+    width: auto;
+    height: 100%;
+}
+.startButton{
+    position: absolute;
+    top:65%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size:30px;
+    font-weight:700;
+    font-family:monospace;
+    text-decoration: none;
+    color: rgb(228, 205, 223);
+}
+.startButton:hover {
+    color: rgb(204, 97, 97);
 }
