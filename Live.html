@@ -3,14 +3,24 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="style/home.css" rel="stylesheet" type="text/css">
+        <link href="home.css" rel="stylesheet" type="text/css">
         <title>live</title>
     </head>
 
     <body>
-        <div class="homePage">
+        <div id="start-Screen">
                 <img src="img/homePage.jpg" alt="homePage">
-                <a href="#" class="startButton">START</a>
+                <a src="#" id="start-Button" alt="START">START</a>
         </div>
+
+        <div id="game-Box" style="display: none;"> 
+            <div id="dialogue-Box">
+                <p id="dialogue-Text">THIS IS TEST, I HATE JAVASCRIPT</p>
+            </div>
+                <div id="option-Box">
+                </div>
+        </div>
+
+        <script src="home.js"></script>
     </body>
 </html>
