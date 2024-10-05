@@ -4,41 +4,37 @@ html{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-}
-
-#start-Screen{
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-}
-.fade-out-StartScreen{
-    opacity: 0.2;
-    transition: opacity 1s ease;
+    cursor: pointer;
 }
 
 img{
-    width: auto;
-    height: 100%;
-    margin: 0;
+    height: 100vh;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+}
+
+.fade-out-StartScreen{
+    opacity: 0.1;
+    transition: opacity 1s ease;
 }
 
 #start-Button{
     position: absolute;
-    top:65%;
+    top:70%;
     left:50%;
     transform: translate(-50%, -50%);
     font-size:30px;
     font-weight:700;
     font-family:monospace;
     text-decoration: none;
-    color: rgb(228, 205, 223);
-    cursor: pointer;
+    color: rgb(243, 214, 236);
 }
 
 #start-Button:hover {
-    color: rgb(204, 97, 97);
+    color: rgb(216, 98, 98);
 }
 
 .fade-out-StartButton{
@@ -52,13 +48,15 @@ img{
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
-    width: 500px;;
+    width: 69vh;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
     transition: opacity 1s ease;
+    color: aquamarine;
+    background-color: rgba(255, 255, 255, 0.181);
 }
 
 #dialogue-Box{

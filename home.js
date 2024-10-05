@@ -15,5 +15,5 @@ function startGame(){
             gameBox.style.opacity = 1;
         },50);
         updateDialoguea();
-    },1000);
+    },100);
 }
