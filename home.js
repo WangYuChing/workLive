@@ -42,5 +42,4 @@ function updateDialogue(){
         optionElement.textContent = option.text;//設定選項文字
         optionElement.setAttribute('dataChoice',option.choice);// 為變數optionElement設置一個自定義屬性dataChoice，值來自option.choice
         optionBox.appendChild(optionElement);//appendChild 將新的子元素(optionElement)加入指定父元素(optionBox)
-    });
-}
+    });}
