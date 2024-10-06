@@ -45,10 +45,10 @@ function updateDialogue(){
         optionBox.appendChild(optionElement);//appendChild 將新的子元素(optionElement)加入指定父元素(optionBox)
     });}
 
-//點擊選項
-optionBox.addEventListener('click',function(event){
-    if(event.target.classList.contains('option')){
-        const choice = event.target.getAttribute('dataChoice');
+//當選項框被點擊時，執行下列程式            event 事件對象。包含有關事件的資訊，例如觸發事件的元素、事件類型等。
+optionBox.addEventListener('click',function(event){   //event.target 觸發事件的元素。
+    if(event.target.classList.contains('option')){   //如果點擊的元素包含class類別.option
+        const choice = event.target.getAttribute('dataChoice');//獲取屬性(Attribute)名為dataChoice的元素並賦值給變數choice
         if(choice == '1'){
             if(currentDialogue === 0) currentDialogue = 1;
             else if(currentDialogue === 1) currentDialogue = 3;
@@ -59,37 +59,3 @@ optionBox.addEventListener('click',function(event){
         updateDialogue();
     }
 });
-
-
-
-const dialogues = {
-    0: {
-        text: "歡迎來到冒險世界！你遇到了一位神秘的老者，他看起來有些話要說說說說說說說說說。",
-        options: [
-            { choice: "1", text: "繼續聽他的故事" }, // 選項 1：繼續聽老者的故事
-            { choice: "2", text: "謝謝你，但我必須走了" } // 選項 2：離開
-        ]
-    },
-    1: {
-        text: "老者說：「這是一個古老的世界，充滿了神秘和危險。你想知道什麼？」",
-        options: [
-            { choice: "1", text: "繼續聽他的故事" }, // 選項 1：繼續聽老者的故事
-            { choice: "2", text: "謝謝你，但我必須走了" } // 選項 2：離開
-        ]
-    },
-    2: {
-        text: "你決定離開，老者默默地看著你遠去，似乎有些失望。",
-        options: [] // 沒有選項，對話結束
-    },
-    3: {
-        text: "老者說：「很多年前，這裡是勇士們的樂園。傳說寶藏仍然隱藏在某處...」",
-        options: [
-            { choice: "1", text: "繼續探索寶藏的故事" }, // 選項 1：繼續聽關於寶藏的故事
-            { choice: "2", text: "謝謝你的故事，我該走了" } // 選項 2：離開
-        ]
-    },
-    4: {
-        text: "你告別了老者，踏上了自己的冒險之旅，這個世界的秘密仍待發現。",
-        options: [] // 沒有選項，對話結束
-    }
-};
