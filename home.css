@@ -4,7 +4,6 @@ html{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    cursor: pointer;
 }
 
 img{
@@ -31,6 +30,7 @@ img{
     font-family:monospace;
     text-decoration: none;
     color: rgb(243, 214, 236);
+    cursor: pointer;
 }
 
 #start-Button:hover {
@@ -50,15 +50,30 @@ img{
     transform: translate(-50%, -50%);
     width: 69vh;
     height: 100vh;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     opacity: 0;
     transition: opacity 1s ease;
-    color: aquamarine;
     background-color: rgba(255, 255, 255, 0.181);
 }
 
-.option{
-    
+#dialogue-Text{
+    color: rgb(181, 207, 53);
+}
+.option {
+    padding: 10px 15px;              /* 選項內邊距 */
+    margin: 5px;                     /* 選項邊距 */
+    font-size: 16px;                 /* 字體大小 */
+    cursor: pointer;                 /* 鼠標懸停時顯示為可點擊 */
+    border: 2px solid #4CAF50;       /* 設定選項邊框，顏色與按鈕相同 */
+    border-radius: 5px;              /* 圓角 */
+    background-color: #fffcfc;       /* 選項背景顏色 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 選項的外光效果 */
+    transition: background-color 0.3s, box-shadow 0.3s; /* 背景顏色和外光效果的漸變 */
+}
+
+.option:hover {
+    background-color: #f0f0f0;       /* 鼠標懸停時的背景顏色 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* 鼠標懸停時的外光效果 */
 }
