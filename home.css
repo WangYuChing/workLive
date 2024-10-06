@@ -5,8 +5,7 @@ html{
     align-items: center;
     height: 100vh;
 }
-
-img{
+#homePage{
     height: 100vh;
     position: absolute;
     top:50%;
