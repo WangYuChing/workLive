@@ -35,7 +35,7 @@ function updateDialogue(){
     const dialogue = dialogues[currentDialogue];//取得當前對話
     dialogueText.textContent = dialogue.text;//更新劇情文字
     optionBox.innerHTML = "";//清空選項容器
-
+setTimeout(() => {
     //將選項逐一加進選項容器optionBox
     dialogue.options.forEach(option => {
         const optionElement = document.createElement('div');// 建立選項元素
@@ -43,7 +43,8 @@ function updateDialogue(){
         optionElement.textContent = option.text;//設定選項文字
         optionElement.setAttribute('dataChoice',option.choice);// 為變數optionElement設置一個自定義屬性dataChoice，值來自option.choice
         optionBox.appendChild(optionElement);//appendChild 將新的子元素(optionElement)加入指定父元素(optionBox)
-    });}
+    });},1000)
+}
 
 //當選項框被點擊時，執行下列程式            event 事件對象。包含有關事件的資訊，例如觸發事件的元素、事件類型等。
 optionBox.addEventListener('click',function(event){   //event.target 觸發事件的元素。
