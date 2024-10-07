@@ -35,28 +35,14 @@ function updateDialogue(){
     const dialogue = dialogues[currentDialogue];//取得當前對話
     dialogueText.textContent = dialogue.text;//更新劇情文字
     optionBox.innerHTML = "";//清空選項容器
-setTimeout(() => {
-    //將選項逐一加進選項容器optionBox
-    dialogue.options.forEach(option => {
-        const optionElement = document.createElement('div');// 建立選項元素
-        optionElement.classList.add('option');//新增class類別樣式.option
-        optionElement.textContent = option.text;//設定選項文字
-        optionElement.setAttribute('dataChoice',option.choice);// 為變數optionElement設置一個自定義屬性dataChoice，值來自option.choice
-        optionBox.appendChild(optionElement);//appendChild 將新的子元素(optionElement)加入指定父元素(optionBox)
-    });},1000)
-}
 
-//當選項框被點擊時，執行下列程式            event 事件對象。包含有關事件的資訊，例如觸發事件的元素、事件類型等。
-optionBox.addEventListener('click',function(event){   //event.target 觸發事件的元素。
-    if(event.target.classList.contains('option')){   //如果點擊的元素包含class類別.option
-        const choice = event.target.getAttribute('dataChoice');//獲取屬性(Attribute)名為dataChoice的元素並賦值給變數choice
-        if(choice == '1'){
-            if(currentDialogue === 0) currentDialogue = 1;
-            else if(currentDialogue === 1) currentDialogue = 3;
-            else if(currentDialogue === 3) currentDialogue = 4;
-        }else if(choice == '2'){
-            currentDialogue = 2;
-        }
-        updateDialogue();
-    }
-});
+    setTimeout(() => {
+        //將選項逐一加進選項容器optionBox
+        dialogue.options.forEach(option => {
+            const optionElement = document.createElement('div');// 建立選項元素
+            optionElement.classList.add('option');//新增class類別樣式.option
+            optionElement.textContent = option.text;//設定選項文字
+            optionElement.setAttribute('dataChoice',option.choice);// 為變數optionElement設置一個自定義屬性dataChoice，值來自option.choice
+            optionBox.appendChild(optionElement);//appendChild 將新的子元素(optionElement)加入指定父元素(optionBox)
+        });},3000)
+}

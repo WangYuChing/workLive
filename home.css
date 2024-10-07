@@ -54,17 +54,20 @@ html{
     align-items: center;
     opacity: 0;
     transition: opacity 2s ease;
-    background-color: rgba(255, 255, 255, 0.181);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 #dialogue-Text{
+    text-align: left;
     color: rgb(216, 216, 216);
     margin-top: 100px;
     margin-right: 50px;
     margin-bottom: 50px;
     margin-left: 50px;
+    white-space: pre-line;
 }
 .option {
+    text-align: center;
     padding: 10px 15px;
     margin-top: 10px;
     margin-right: 20px;
