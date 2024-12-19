@@ -1,0 +1,263 @@
+:root {
+    --chat-font-size: 15px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #06060c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#dialogueImage{
+    width: 500px;
+    min-height: 100vh;
+    max-height: 100vh;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+}
+
+#breakImage{
+    width: 500px;
+    min-height: 100vh;
+    max-height: 100vh;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+}
+
+#marryImage{
+    width: 500px;
+    min-height: 100vh;
+    max-height: 100vh;
+    border-radius: 10px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    margin: auto;    
+}
+
+.fade-out-HomeScreen{
+    opacity: 0.2;
+    transition: opacity 1s ease;
+    pointer-events: none;
+}
+
+#start-Button{
+    position: absolute;
+    top:65%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size:35px;/*35*/
+    font-weight:700;
+    font-family:monospace;
+    text-decoration: none;
+    color: rgb(243, 214, 236);
+    cursor: pointer;
+}
+
+#start-Button:hover, #set-Button:hover, #backBtn:hover{
+    color: rgb(216, 98, 98);
+}
+
+.fade-out-StartButton{
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+}
+
+#set-Button{
+    position: absolute;
+    top:72%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size:22px;/*22*/
+    font-weight: 900;
+    font-family:'Times New Roman', Times, serif;
+    text-decoration: none;
+    color: rgb(243, 214, 236);
+    cursor: pointer;
+}
+
+.fade-out-SetButton{
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+}
+
+#chat-container {
+    width: 500px;
+    min-height: 100vh;
+    max-height: 100vh;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    overflow-y: auto;  /* 允許垂直滾動 */
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column; /* 讓對話排列在垂直方向 */
+    transition: opacity 1s ease;
+    background-color: rgba(247, 241, 241, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+#dialogueArea {
+    max-height: 100vh;
+    overflow-y: auto; /* 啟用垂直滾動 */
+    display: flex;
+    flex-direction: column; /* 讓對話排列在垂直方向 */
+    scrollbar-width: none;
+}
+
+.chat-message-area {
+    margin-bottom: 20px; /* 留出空間給選項區域 */
+}
+
+.chat-message {
+    display: flex;
+    white-space: pre-line;
+    font-size: var(--chat-font-size);/*15*/
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display:flex;
+}
+
+.speaker {
+    display: flex;
+    justify-items: center;
+    font-weight: bold;
+    font-size: var(--chat-font-size);/**12*/
+    margin-bottom: -10px;
+    color: #ffffff;
+}
+
+.chat-message .message {
+    padding: 8px;
+    border-radius: 10px;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+/* 左側角色的樣式 */
+.chat-message.left {
+    justify-content: flex-start;
+}
+
+.chat-message.left .message {
+    background-color: #e1f5fe; /* 藍色 */
+}
+
+/* 中間的樣式 */
+.chat-message.center {
+    justify-content: center;
+}
+
+.chat-message.center .message {
+    background-color: #ffffff00; /* 藍色 */
+    color: #ffffff;
+    text-align: center;
+}
+
+/* 右側角色的樣式 */
+.chat-message.right {
+    justify-content: flex-end;
+}
+
+.chat-message.right .message {
+    background-color: #c8e6c9; /* 綠色 */
+}
+
+/* 新增選項區域的樣式 */
+.options-area {
+    height:fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.option-button {
+    background-color:rgba(243, 214, 236, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);color: rgb(0, 0, 0);
+    border: 3px solid rgb(243, 214, 236);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: var(--chat-font-size);/*15*/
+}
+
+.option-button:hover {
+    background-color: rgb(197, 197, 197);
+    border: 3px solid rgb(197, 197, 197);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#setup-container {
+    width: 500px;
+    min-height: 100vh;
+    max-height: 100vh;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    flex-direction: column; /* 讓對話排列在垂直方向 */
+    background-color: rgb(255, 184, 184);
+    line-height: 2;
+}
+
+#backBtn{
+    font-size: var(--chat-font-size);/*22*/
+    font-weight: 900;
+    font-family: monospace;
+    text-decoration: none;
+    color: rgb(248, 237, 237);
+    cursor: pointer;
+}
+
+#volumeBtn{
+    font-size: var(--chat-font-size);/*20*/
+    font-weight: 600;
+    font-family: monospace;
+    text-decoration: none;
+    color: rgb(212, 57, 57);
+    margin-right: 20px;
+}
+
+#fontSizeBtn{
+    font-size: var(--chat-font-size);/*20*/
+    font-weight: 600;
+    font-family: monospace;
+    text-decoration: none;
+    color: rgb(212, 57, 57);
+    margin-right: 20px;
+}
+
+input[type="range"] {
+    cursor: pointer;
+    margin-right: 2px;
+}
+
+#volumeSlider, #fontSizeSlider {
+    width: 90%;
+    margin-top: 10px;
+}

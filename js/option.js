@@ -1,37 +1,46 @@
-//當選項框被點擊時，執行下列程式            event 事件對象。包含有關事件的資訊，例如觸發事件的元素、事件類型等。
-optionBox.addEventListener('click',function(event){   //event.target 觸發事件的元素。
-    if(event.target.classList.contains('option')){   //如果點擊的元素包含class類別.option
-        const choice = event.target.getAttribute('dataChoice');//獲取屬性(Attribute)名為dataChoice的元素並賦值給變數choice
-        if(choice == '1'){
-            if(currentDialogue === 0) currentDialogue = 1; // 選項 1.回去
-            else if(currentDialogue === 1) currentDialogue = 11; // 選項 1.激動
-            else if(currentDialogue === 11) currentDialogue = 13; // 選項 1.掛斷
-            else if(currentDialogue === 12) currentDialogue = 13; // 選項 1.掛斷
-            else if(currentDialogue === 13) currentDialogue = 131; // 選項 1.含糊帶過--->BE
-            else if(currentDialogue === 14) currentDialogue = 141; // 選項 1.含糊帶過
-            else if(currentDialogue === 141) currentDialogue = 151; // 選項 1.含糊帶過--->BE
-            else if(currentDialogue === 142) currentDialogue = 151; // 選項 1.含糊帶過--->BE
-            else if(currentDialogue === 152) currentDialogue = 1521; // 選項 1.逗一下--->HE
-            else if(currentDialogue === 2) currentDialogue = 21; // 選項 1.接通
-            else if(currentDialogue === 21) currentDialogue = 211; // 選項 1.含糊帶過--->BE
-            else if(currentDialogue === 22) currentDialogue = 221; // 選項 1.逗一下--->HE
-        }
-        else if(choice == '3'){
-            if(currentDialogue === 1) currentDialogue =12; // 選項 3.反駁
-            else if(currentDialogue === 11) currentDialogue = 14; // 選項 3.接起來
-            else if(currentDialogue === 12) currentDialogue = 14; // 選項 3.接起來
-            else if(currentDialogue === 13) currentDialogue = 132; // 選項 3.老實交代
-            else if(currentDialogue === 14) currentDialogue = 142; // 選項 3.承認
-            else if(currentDialogue === 141) currentDialogue = 152; // 選項 3.老實交代--->HE
-            else if(currentDialogue === 142) currentDialogue = 152; // 選項 3.老實交代
-            else if(currentDialogue === 152) currentDialogue = 1522; // 選項 3.認真的再問一次--->HE
-            else if(currentDialogue === 2) currentDialogue = 22; // 選項 2.掛斷
-            else if(currentDialogue === 21) currentDialogue = 212; // 選項 3.老實交代--->OE
-            else if(currentDialogue === 22) currentDialogue = 222; // 選項 3.認真的再問一次--->HE
-        }
-        else if(choice == '2'){
-            if(currentDialogue === 0) currentDialogue =2; // 選項 2.不回去
-        }
-        updateDialogue();
+// 顯示選項的函數
+function showOptions(options) {
+    // 檢查 options 是否為有效的陣列
+    if (!Array.isArray(options) || options.length === 0) {
+        console.warn('無效的選項資料');
+        return;
     }
-});
+
+    optionsArea.innerHTML = ''; // 清空之前的選項內容
+    optionsArea.classList.remove('options-area'); // 確保無重複樣式
+    optionsArea.classList.add('options-area'); // 添加樣式類別
+    optionsArea.style.opacity = '1';
+
+    // 為每個選項創建按鈕
+    options.forEach(option => {
+        const button = document.createElement('button'); // 創建按鈕元素
+        button.className = 'option-button'; // 設置按鈕的樣式類別
+        button.textContent = option.text || option; // 設定按鈕顯示的文字內容
+
+        // 點擊按鈕時處理選擇事件
+        button.addEventListener('click', () => {
+            if (option.choice !== undefined) { // 檢查 option.choice 是否存在
+                handleOptionSelection(option.choice);
+            } else {
+                console.warn('選項缺少 choice 屬性');
+            }
+        });
+
+        optionsArea.appendChild(button); // 將按鈕加入選項區域
+        optionsArea.classList.add('options-area');
+    });
+}
+
+
+// 通用選項選擇處理函數
+function handleOptionSelection(choice) {
+    // 根據選項映射表更新 currentDialogue
+    const nextDialogue = dialogueMap[choice]?.[currentDialogue]; // 查找下一個對話索引
+
+    if (nextDialogue !== undefined) {
+        currentDialogue = nextDialogue; // 更新 currentDialogue
+        currentMessageIndex = 0; // 重置訊息索引
+        optionsArea.style.opacity = '0'; // 設置選項區域透明以進行淡出效果
+        optionsArea.style.display = 'none'; // 隱藏選項區域
+    }
+}
